@@ -86,5 +86,8 @@ class PostController extends Controller
         //
     }
 
-
+    public function getPost($id){
+        $post=Post::find($id);
+        return $post;
+    }
 }
