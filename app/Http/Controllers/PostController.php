@@ -39,6 +39,7 @@ class PostController extends Controller
         $post->title=$request->title;
         $post->body=$request->body;
         $post->save();
+        return $post;
     }
 
     /**
@@ -72,7 +73,10 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->title=$request->title;
+        $post->body=$request->body;
+        $post->save();
+        return $post;
     }
 
     /**
@@ -83,7 +87,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return $post;
     }
 
     public function getPost($id){
