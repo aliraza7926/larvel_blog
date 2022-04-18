@@ -14,9 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::latest()->get();
+        return $posts;
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +35,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post=new Post;
+        $post->title=$request->title;
+        $post->body=$request->body;
+        $post->save();
     }
 
     /**
@@ -82,4 +85,6 @@ class PostController extends Controller
     {
         //
     }
+
+
 }
